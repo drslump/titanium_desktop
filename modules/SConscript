@@ -15,6 +15,7 @@ for dir in [
     'ti.Monkey',
     'ti.Database',
     'ti.Worker',
-    'ti.Codec'
+    'ti.Codec',
+    'ti.DrSlump'
 ]:
     build_module_from_directory(dir)

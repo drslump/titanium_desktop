@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+from os import path
+Import('build env module')
+
+sources = Glob('*.cpp')
+if build.is_win32():
+    sources += Glob('win/*.cpp')
+elif build.is_linux():
+    sources += Glob('linux/*.cpp')
+elif build.is_osx():
+    sources += Glob('mac/*.mm')
+
+env.Append(CPPDEFINES = ('TITANIUM_DRSLUMP_API_EXPORT', 1))
+build.add_thirdparty(env, 'poco')
+build.mark_build_target(env.SharedLibrary(
+    path.join(module.dir, 'tidrslumpmodule'), sources))
+
